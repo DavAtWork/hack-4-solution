@@ -1,46 +1,47 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {Link } from "react-router-dom";
+import Loading from "./Loading.jsx";
 
 
 export default function User() {
     const { username } = useParams();
     const [userInfo, setUserInfo] = useState({})
     const [userImages, setuserImages] = useState([])
-    let [loading, setLoading] = useState(true)
+    let [isloading, setisLoading] = useState(false);
 
     const api_key = '34k0v7zAAU1jHWUJ4ZIiyZQClidhjXNxZawR-8QNZaI'
 
 
     const fetchUserInfo = async () => {
+        setisLoading(true);
         const response = await fetch(`https://api.unsplash.com/users/${username}?client_id=${api_key}`);
         const data = await response.json();
         setUserInfo(data);
     };
     const fetchuserImages = async () => {
-        const response = await fetch(`https://api.unsplash.com/users/${username}/photos?client_id=${api_key}`);
+        const response = await fetch(`https://api.unsplash.com/users/${username}/photos?per_page=12&client_id=${api_key}`);
         const data = await response.json();
         console.log(data);
-
         setuserImages(data);
+        setisLoading(false);
     };
 
     useEffect(() => {
         fetchUserInfo();
         fetchuserImages();
-        setLoading = false
     }
         ,[username])
 
 
     return (
-        loading?(
+        isloading !== true ?
             userInfo.profile_image?(
             <div>
                 <div className="UserInfo">
                     <h3>{userInfo.name}</h3>
-                    <img src={userInfo.profile_image.large} />
-                    <p>Total likes: {userInfo.total_likes}</p>
+                    <img src={userInfo.profile_image.large}  alt="Profile Image"/>
+                    <p>Downloads: {userInfo.downloads}</p>
                     <p>Followers: {userInfo.followers_count}</p>
                     <p>{userInfo.bio}</p>
                 </div>
@@ -53,8 +54,6 @@ export default function User() {
                 </ul>
             </div>)
             :null
-        ):
-        <div className='preload'></div>                
-
+        : <Loading/>
     )
 }

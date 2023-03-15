@@ -45,17 +45,19 @@ ul{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  
+  justify-content: center;
+  align-items: center;
 }
 li{
   list-style: none;
 }
 
-#images li{
+.image{
   display: flex;
   flex-direction: column;
-
 }
+
+
 
 .preload {
   width: 60px;

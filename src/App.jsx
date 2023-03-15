@@ -1,8 +1,8 @@
 import './App.css'
-import HomePage from './HomePage';
+import HomePage from './HomePage.jsx';
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
-import User from './User'
-import Image from './Image'
+import User from './User.jsx'
+import Image from './Image.jsx'
 
 
 export default function App() {
