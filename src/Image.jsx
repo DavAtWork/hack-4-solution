@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
+
 
 
 export default function Image(){
@@ -21,9 +23,17 @@ export default function Image(){
 
       return(
         image?
-        <>
+        <div className="imageContainer">
             <img src={image.urls.regular} alt={image.description} />
-        </>
+            <div className="imageDetails">
+              <p>Captured with: {image.exif.name}</p>
+              <p>{image.description? image.description: 'This image has no description'}</p>
+              <p>Downloads: {image.downloads}</p>
+              <p>Location: {(image.location.city || image.location.country)? image.location.city +', '+ image.location.country : 'Unknown'}</p>
+              <p>Author: <Link to={`/users/${image.user.username}`}>{image.user.name}</Link></p>
+            </div>
+            
+        </div>
         :null
       )
 }

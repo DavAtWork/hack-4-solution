@@ -74,3 +74,65 @@ li{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.imageLink{
+  height: 90%;
+  cursor: pointer;
+}
+
+.imageInfo{
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  color: white;
+  display: none;
+  transition: all 0.5 ease-in-out;
+  
+  
+  
+}
+.imageInfo a {
+  text-decoration: none;
+  color: white;
+
+}
+.imageStats{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bi.bi-heart{
+  transform: scale(1.1);
+  transform: translateY(1px);
+}
+
+.image:hover .imageInfo{
+  display: flex;
+  transition: all 0.5 ease-in-out;
+
+}
+
+.imageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 50px;
+}
+.imageContainer img{
+  max-height: 80vh;
+}
+
+#nav{
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  font-size: 2rem;
+  font-weight: bolder;
+  text-decoration: none;
+}
