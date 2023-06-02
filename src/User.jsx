@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
-
+import {KEYS} from "/keys.js";
 
 export default function User() {
     const { username } = useParams();
@@ -10,7 +10,7 @@ export default function User() {
     const [userImages, setuserImages] = useState([])
     let [isloading, setisLoading] = useState(false);
 
-    const api_key = '34k0v7zAAU1jHWUJ4ZIiyZQClidhjXNxZawR-8QNZaI'
+    const api_key = KEYS.UNSPLASH_API_KEY;
 
 
     const fetchUserInfo = async () => {

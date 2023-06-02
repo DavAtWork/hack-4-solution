@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {Link} from "react-router-dom";
-
+import {KEYS} from "/keys.js";
 
 
 export default function Image(){
-    const api_key = '34k0v7zAAU1jHWUJ4ZIiyZQClidhjXNxZawR-8QNZaI'
+    const api_key = KEYS.UNSPLASH_API_KEY;
     const { image_id } = useParams();
     const [image, setImage] = useState('')
 

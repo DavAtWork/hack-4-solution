@@ -3,6 +3,7 @@ import './App.css'
 import SearchBar from './SearchBar.jsx'
 import SearchResults from './SearchResults.jsx'
 import Loading from "./Loading.jsx";
+import {KEYS} from '/keys.js'
 
 export default function HomePage() {
     const [imageList, setImageList] = useState([]);
@@ -11,7 +12,7 @@ export default function HomePage() {
     let [isloading, setisLoading] = useState(false);
 
 
-    const api_key = '34k0v7zAAU1jHWUJ4ZIiyZQClidhjXNxZawR-8QNZaI'
+    const api_key = KEYS.UNSPLASH_API_KEY;
 
     const fetchImageList = async () => {
         setisLoading(true);
