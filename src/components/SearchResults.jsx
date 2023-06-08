@@ -1,16 +1,25 @@
-import {Link} from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
-export default function SearchResults({ imageList, page, setPage }) {
+import { Context } from "../contexts/Context";
+
+export function SearchResults({ imageList, page, setPage }) {
+
+    const { context } = useContext(Context);
 
     return (
         <>
             <ul id="images">
                 {imageList.map((image) => (
                     <li key={image.id} className="image" style={{
-                        backgroundImage: `url(${image.urls.raw + "&fit=crop&w=300&h=300"})`, backgroundRepeat: 'no-repeat', width: '300px', height: '300px'
+                        backgroundImage: `url(${image.urls.raw + "&fit=crop&w="+context.width+"&h="+context.height})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        width: context.width+"px",
+                        height: context.height+"px"
                     }}>
                         <Link className="imageLink" to={`/images/${image.id}`}>
-                
+
                         </Link>
                         <div className="imageInfo">
                             <div className="imageAuthor">
@@ -33,7 +42,8 @@ export default function SearchResults({ imageList, page, setPage }) {
             <div>
                 {page !== 1 ?
                     <button onClick={() => setPage(page - 1)}>Previous</button>
-                    : null
+                    :
+                    <></>
                 }
                 <button onClick={() => setPage(page + 1)}>Next</button>
 
