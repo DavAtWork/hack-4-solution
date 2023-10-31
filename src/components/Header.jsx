@@ -17,11 +17,11 @@ export function Header(){
             </nav>
             <div>
                 <span>{width}x{height}</span><br/>
-                W:<input type="range" min="100" max="500" step="50" value={width} onChange={(e) => {
+                Width: <input type="range" min="100" max="500" step="50" value={width} onChange={(e) => {
                     e.preventDefault()
                     setWidth(e.target.value)
                 }}/><br />
-                H:<input type="range" min="100" max="500" step="50" value={height} onChange={(e) => {
+                Height:<input type="range" min="100" max="500" step="50" value={height} onChange={(e) => {
                     e.preventDefault()
                     setHeight(e.target.value)
                 }}/><br />
