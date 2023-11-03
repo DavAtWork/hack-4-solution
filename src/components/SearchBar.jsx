@@ -11,7 +11,7 @@ export function SearchBar(){
 
     return (
         <div className="SearchBar">
-            <input name='searchQuery' type='text' onChange={handleInput}/>
+            <input name='searchQuery' type='search' onChange={handleInput}/>
             <Link to={`/search/${inputValue}`}><button type='submit'>Search</button></Link>
         </div>
     );

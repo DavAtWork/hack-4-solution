@@ -8,8 +8,6 @@ import { HomePage } from './components/HomePage.jsx'
 
 import { ContextProvider } from './contexts/ContextProvider';
 
-import './css/app.css'
-
 export default function App() {
   return (
     <>

@@ -39,14 +39,13 @@ export function SearchResults({ imageList, page, setPage }) {
                     </li>
                 ))}
             </ul>
-            <div>
+            <div className="pagination-buttons">
                 {page !== 1 ?
                     <button onClick={() => setPage(page - 1)}>Previous</button>
                     :
-                    <></>
+                    null
                 }
                 <button onClick={() => setPage(page + 1)}>Next</button>
-
             </div>
         </>
     )
