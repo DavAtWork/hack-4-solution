@@ -216,3 +216,18 @@ ul {
   justify-content: center;
   gap: 2rem;
 }
+
+.search-results {
+  margin: 3rem 0;
+}
+
+.per-page {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+
+  .per-page-select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+}

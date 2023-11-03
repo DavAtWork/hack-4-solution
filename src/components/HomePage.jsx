@@ -10,6 +10,7 @@ import { Context } from '../contexts/Context.jsx';
 export function HomePage() {
     const [imageList, setImageList] = useState([]);
     const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(12)
     const [isLoading, setIsLoading] = useState(false);
 
     const { query } = useParams()
@@ -18,18 +19,18 @@ export function HomePage() {
 
     const fetchImageList = async () => {
         setIsLoading(true);
-        const response = await fetch(`https://api.unsplash.com/search/photos?query=${query}&page=${page}&per_page=12&client_id=${apiKey}`);
+        const response = await fetch(`https://api.unsplash.com/search/photos?query=${query}&page=${page}&per_page=${perPage}&client_id=${apiKey}`);
         const data = await response.json();
         setImageList(data.results);
         setIsLoading(false);
     };
     useEffect(() => {
         fetchImageList();
-    }, [page, query]);
+    }, [page, perPage, query]);
 
     return (
         <>
-            <SearchBar />
+            <SearchBar perPage={perPage} setPerPage={setPerPage}/>
             {
             isLoading !== true ?
                 imageList.length!== 0 ?

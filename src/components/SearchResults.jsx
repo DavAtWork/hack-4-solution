@@ -8,7 +8,16 @@ export function SearchResults({ imageList, page, setPage }) {
     const { context } = useContext(Context);
 
     return (
-        <>
+        <div className="search-results">
+            <div className="pagination-buttons">
+                {page !== 1 ?
+                    <button onClick={() => setPage(page - 1)}>Previous</button>
+                    :
+                    null
+                }
+                <button onClick={() => setPage(page + 1)}>Next</button>
+            </div>
+
             <ul id="images">
                 {imageList.map((image) => (
                     <li key={image.id} className="image" style={{
@@ -47,6 +56,6 @@ export function SearchResults({ imageList, page, setPage }) {
                 }
                 <button onClick={() => setPage(page + 1)}>Next</button>
             </div>
-        </>
+        </div>
     )
 }
